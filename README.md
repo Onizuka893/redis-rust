@@ -1,35 +1,55 @@
-[![progress-banner](https://backend.codecrafters.io/progress/redis/c8474895-d855-42a4-9f88-51e773fcb6fe)](https://app.codecrafters.io/users/codecrafters-bot?r=2qF)
+# Rust Redis Clone
 
-This is a starting point for Rust solutions to the
-["Build Your Own Redis" Challenge](https://codecrafters.io/challenges/redis).
+This is a simple Redis clone written in Rust, aimed at providing a basic implementation of key-value storage and retrieval functionalities similar to Redis.
 
-In this challenge, you'll build a toy Redis clone that's capable of handling
-basic commands like `PING`, `SET` and `GET`. Along the way we'll learn about
-event loops, the Redis protocol and more.
+## Features
 
-**Note**: If you're viewing this repo on GitHub, head over to
-[codecrafters.io](https://codecrafters.io) to try the challenge.
+- **Key-Value Storage**: Store and retrieve data using a key-value pair system.
+- **String Data**: Supports storage and retrieval of string data.
+- **Basic Commands**: Implements basic Redis-like commands such as `SET`, `GET`, `DEL`, etc.
+- **Concurrency**: Utilizes Rust's concurrency features for efficient parallel processing.
 
-# Passing the first stage
+## Installation
 
-The entry point for your Redis implementation is in `src/main.rs`. Study and
-uncomment the relevant code, and push your changes to pass the first stage:
+1. Make sure you have Rust installed. If not, you can get it from [rustup.rs](https://rustup.rs/).
+2. Clone this repository:
 
-```sh
-git add .
-git commit -m "pass 1st stage" # any msg
-git push origin master
+   ```bash
+   git clone https://github.com/Onizuka893/redis-rust.git
+   ```
+
+3. Navigate into the project directory:
+
+   ```bash
+   cd redis-rust
+   ```
+
+4. Build the project:
+
+   ```bash
+   ./spawn_redis_server.sh
+   ```
+
+## Usage
+
+1. Use a Redis client to connect to the server. By default, the server listens on `localhost:6379`.
+
+2. Start sending Redis commands similar to the ones you use with the actual Redis server.
+
+## Example
+
+```bash
+$ redis-cli
+127.0.0.1:6379> SET mykey "hello"
+OK
+127.0.0.1:6379> GET mykey
+"hello"
 ```
 
-That's all!
+## Contributing
 
-# Stage 2 & beyond
+Contributions are welcome! If you find any bugs or want to propose new features, feel free to open an issue or submit a pull request.
 
-Note: This section is for stages 2 and beyond.
+## License
 
-1. Ensure you have `cargo (1.54)` installed locally
-1. Run `./spawn_redis_server.sh` to run your Redis server, which is implemented
-   in `src/main.rs`. This command compiles your Rust project, so it might be
-   slow the first time you run it. Subsequent runs will be fast.
-1. Commit your changes and run `git push origin master` to submit your solution
-   to CodeCrafters. Test output will be streamed to your terminal.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
